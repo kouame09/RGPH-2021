@@ -2,15 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapContainer, TileLayer, Circle, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { populationData } from '../data/populationData';
 
 const UrbanizationMap = ({ isFullPage = false }) => {
-  const cities = [
-    { name: 'Abidjan', population: 5616633, coordinates: [5.3600, -4.0083] },
-    { name: 'Bouaké', population: 832371, coordinates: [7.6906, -5.0303] },
-    { name: 'Korhogo', population: 440926, coordinates: [9.4578, -5.6297] },
-    { name: 'Daloa', population: 421879, coordinates: [6.8898, -6.4504] },
-    { name: 'San-Pédro', population: 390654, coordinates: [4.7485, -6.6363] },
-  ];
+  const cities = populationData.majorCities;
 
   return (
     <motion.div

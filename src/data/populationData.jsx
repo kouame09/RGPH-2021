@@ -24,7 +24,17 @@ export const populationData = {
       { name: 'Bouaké', population: 832371, coordinates: [7.6906, -5.0303] },
       { name: 'Korhogo', population: 440926, coordinates: [9.4578, -5.6297] },
       { name: 'Daloa', population: 421879, coordinates: [6.8898, -6.4504] },
-      { name: 'San-Pédro', population: 390654, coordinates: [4.7485, -6.6363] }
+      { name: 'San-Pédro', population: 390654, coordinates: [4.7485, -6.6363] },
+      { name: 'Yamoussoukro', population: 340234, coordinates: [6.8276, -5.2893] },
+      { name: 'Man', population: 241969, coordinates: [7.4004, -7.5466] },
+      { name: 'Gagnoa', population: 277044, coordinates: [6.1333, -5.9333] },
+      { name: 'Divo', population: 294559, coordinates: [5.8394, -5.3572] },
+      { name: 'Abengourou', population: 104020, coordinates: [6.7297, -3.4964] },
+      { name: 'Odienné', population: 49857, coordinates: [9.5050, -7.5667] },
+      { name: 'Bondoukou', population: 58297, coordinates: [8.0404, -2.8000] },
+      { name: 'Séguéla', population: 51157, coordinates: [7.9616, -6.6731] },
+      { name: 'Ferkessédougou', population: 62008, coordinates: [9.5928, -5.1967] },
+      { name: 'Soubré', population: 272773, coordinates: [5.7833, -6.6000] }
     ],
     foreignPopulation: {
       total: 6460062,
@@ -32,7 +42,11 @@ export const populationData = {
         { country: 'Burkina Faso', population: 4056444 },
         { country: 'Mali', population: 1108628 },
         { country: 'Autres CEDEAO', population: 1171488 },
-        { country: 'Hors CEDEAO', population: 123502 }
+        { country: 'Hors CEDEAO', population: 123502 },
+        { country: '', population: '' },
+        { country: '', population: '' },
+        { country: '', population: '' },
+        { country: '', population: '' }
       ]
     },
     literacy: {

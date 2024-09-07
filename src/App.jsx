@@ -8,6 +8,9 @@ import UrbanizationMap from './components/UrbanizationMap';
 import ForeignPopulationTable from './components/ForeignPopulationTable';
 import DemographicPieChart from './components/DemographicPieChart';
 import AgeDistributionBar from './components/AgeDistributionBar';
+import LiteracyRateChart from './components/LiteracyRateChart';
+import ReligionsPieChart from './components/ReligionsPieChart';
+import UrbanizationChart from './components/UrbanizationChart';
 import FullPageWrapper from './components/FullPageWrapper';
 
 function App() {
@@ -23,7 +26,7 @@ function App() {
               <PopulationChart isFullPage />
             </FullPageWrapper>
           } />
-          <Route path="/urbanization" element={
+          <Route path="/urbanization-map" element={
             <FullPageWrapper title="Carte d'Urbanisation">
               <UrbanizationMap isFullPage />
             </FullPageWrapper>
@@ -43,10 +46,25 @@ function App() {
               <AgeDistributionBar isFullPage />
             </FullPageWrapper>
           } />
+          <Route path="/literacy" element={
+            <FullPageWrapper title="Taux d'alphabétisation">
+              <LiteracyRateChart isFullPage />
+            </FullPageWrapper>
+          } />
+          <Route path="/religions" element={
+            <FullPageWrapper title="Répartition des religions">
+              <ReligionsPieChart isFullPage />
+            </FullPageWrapper>
+          } />
+          <Route path="/urbanization" element={
+            <FullPageWrapper title="Taux d'urbanisation">
+              <UrbanizationChart isFullPage />
+            </FullPageWrapper>
+          } />
         </Routes>
         <footer className="text-center mt-8 py-4 bg-gray-100">
           <p className="text-sm text-gray-600"> 
-            © {currentYear} Recensement Général de la Population et de l’Habitat (RGPH 2021) | Développé avec <FaHeart className="inline text-red-500" /> par{' '}
+            © {currentYear} Recensement Général de la Population et de l'Habitat (RGPH 2021) | Développé avec <FaHeart className="inline text-red-500" /> par{' '}
             <a href="https://princekouame.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
               Prince Kouamé
             </a>

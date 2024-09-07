@@ -5,6 +5,9 @@ import DemographicPieChart from './DemographicPieChart';
 import UrbanizationMap from './UrbanizationMap';
 import AgeDistributionBar from './AgeDistributionBar';
 import ForeignPopulationTable from './ForeignPopulationTable';
+import LiteracyRateChart from './LiteracyRateChart';
+import ReligionsPieChart from './ReligionsPieChart';
+import UrbanizationChart from './UrbanizationChart';
 
 const Dashboard = () => {
   return (
@@ -32,6 +35,12 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DemographicPieChart />
         <AgeDistributionBar />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <LiteracyRateChart />
+        <ReligionsPieChart />
+        <UrbanizationChart />
       </div>
     </motion.div>
   );
