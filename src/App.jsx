@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { FaHeart } from 'react-icons/fa';
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
 import PopulationChart from './components/PopulationChart';
@@ -14,7 +13,6 @@ import UrbanizationChart from './components/UrbanizationChart';
 import FullPageWrapper from './components/FullPageWrapper';
 
 function App() {
-  const currentYear = new Date().getFullYear();
 
   return (
     <Router>
@@ -62,13 +60,23 @@ function App() {
             </FullPageWrapper>
           } />
         </Routes>
-        <footer className="text-center mt-8 py-4 bg-gray-100">
-          <p className="text-sm text-gray-600"> 
-            © {currentYear} Recensement Général de la Population et de l'Habitat (RGPH 2021) | Développé avec <FaHeart className="inline text-red-500" /> par{' '}
-            <a href="https://princekouame.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              Prince Kouamé
-            </a>
-          </p>
+        <footer className="bg-gray-100 mt-10">
+          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl text-blue-500 font-bold mb-2 mt-8 text-center">
+            RGPH 2021
+              <span className="block text-sm font-normal mt-2">
+                by{" "}
+                <a
+                  href="https://www.princekouame.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600"
+                >
+                  Prince Kouamé
+                </a>
+              </span>
+            </h1>
+          </div>
         </footer>
       </Layout>
     </Router>
