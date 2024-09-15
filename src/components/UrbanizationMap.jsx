@@ -9,10 +9,11 @@ const UrbanizationMap = ({ isFullPage = false }) => {
   const cities = populationData.majorCities;
   const [isFullscreen, setIsFullscreen] = useState(false);
   const mapRef = useRef(null);
+  const containerRef = useRef(null);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      mapRef.current.requestFullscreen().catch(err => {
+      containerRef.current.requestFullscreen().catch(err => {
         console.error(`Error attempting to enable full-screen mode: ${err.message}`);
       });
     } else {
@@ -29,17 +30,29 @@ const UrbanizationMap = ({ isFullPage = false }) => {
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
   }, []);
 
+  useEffect(() => {
+    if (mapRef.current) {
+      mapRef.current.invalidateSize();
+    }
+  }, [isFullscreen]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={`bg-white p-4 sm:p-6 rounded-xl shadow-lg ${isFullPage ? 'h-full' : 'w-full'}`}
-      ref={mapRef}
+      ref={containerRef}
+      style={isFullscreen ? { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999, padding: 0 } : {}}
     >
-      <h2 className="text-xl sm:text-2xl font-semibold mb-4">Carte d'Urbanisation</h2>
-      <div className={`relative ${isFullPage ? 'h-[calc(100%-3rem)]' : 'h-[300px] sm:h-[400px]'}`}>
-        <MapContainer center={[7.54, -5.54]} zoom={6} style={{ height: '100%', width: '100%' }}>
+      {!isFullscreen && <h2 className="text-xl sm:text-2xl font-semibold mb-4">Carte d'Urbanisation</h2>}
+      <div className={`relative ${isFullscreen ? 'h-full w-full' : isFullPage ? 'h-[calc(100%-3rem)]' : 'h-[300px] sm:h-[400px]'}`}>
+        <MapContainer 
+          center={[7.54, -5.54]} 
+          zoom={6} 
+          style={{ height: '100%', width: '100%' }}
+          ref={mapRef}
+        >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {cities.map((city) => (
             <Circle
